@@ -1,0 +1,94 @@
+CREATE TABLE famous_people
+(id INTEGER PRIMARY KEY,
+name TEXT,
+age NUMERIC, 
+ocupation INTEGER,
+email TEXT,
+friend_id INTEGER
+);
+
+
+
+INSERT INTO famous_people VALUES (1,"Beyoncé", 41, "singer","Beyonce@hollywood.com",5);
+INSERT INTO famous_people VALUES (2,"Jay-Z", 52, "rapper","Jay-Z@hollywood.com",6);
+INSERT INTO famous_people VALUES (3,"Mila Kunis", 39, "actor","Mila.Kunis@hollywood.com",9);
+INSERT INTO famous_people VALUES (4,"Ashton Kutcher", 44, "actor","Ashton.Kutcher@hollywood.com",10);
+INSERT INTO famous_people VALUES (5,"Chrissy Teigen", 36, "model","Chrissy.Teigen@hollywood.com",1);
+INSERT INTO famous_people VALUES (6,"John Legend", 43, "singer","John.Legend@hollywood.com",2);
+INSERT INTO famous_people VALUES (7,"Gwen Stefani", 53, "singer","Gwen.Sefani@hollywood.com",15);
+INSERT INTO famous_people VALUES (8,"Blake Shelton", 46, "singer","Blake.Shelton@hollywood.com",16);
+INSERT INTO famous_people VALUES (9,"Blake Lively", 35, "actor","Blake.Lively@hollywood.com",3);
+INSERT INTO famous_people VALUES (10,"Ryan Renolds", 45, "actor","Ryan.Renolds@hollywood.com",4);
+INSERT INTO famous_people VALUES (11,"Sophie Turner", 26, "actor","Sophie.Turner@hollywood.com",13);
+INSERT INTO famous_people VALUES (12,"Joe Jonas", 33, "singer","Joe.Jonas@hollywood.com",14);
+INSERT INTO famous_people VALUES (13,"Hailey Beiber", 25, "model","Hailey.Beiber@hollywood.com",11);
+INSERT INTO famous_people VALUES (14,"Justin Beiber", 28, "singer","Justin.Beiber@hollywood.com",12);
+INSERT INTO famous_people VALUES (15, "Katy Perry", 38, "singer","Katy.Perry@hollywood.com",7);
+INSERT INTO famous_people VALUES (16, "Orlando Bloom", 45, "actor","Orlando.Bloom@hollywood.com",8);
+
+
+CREATE TABLE married_couples (id INTEGER PRIMARY KEY,
+    married1_id INTEGER,
+    married2_id INTEGER);
+
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES(1, 2);
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES(3, 4);
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES (5,6);
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES (7,8);
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES (9,10);
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES (11,12);
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES (13,14);
+INSERT INTO married_couples (married1_id, married2_id)
+    VALUES (15,16);
+    
+    
+CREATE TABLE BestKnownFor
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+person_id INTEGER,
+project TEXT
+);
+
+INSERT INTO BestKnownFor (person_id, project) VALUES (1,"Drunk In Love");
+INSERT INTO BestKnownFor (person_id, project) VALUES (1,"Single Ladies");
+INSERT INTO BestKnownFor (person_id, project) VALUES (2,"99 Problem");
+INSERT INTO BestKnownFor (person_id, project) VALUES (3,"That 70's Show"); 
+INSERT INTO BestKnownFor (person_id, project) VALUES (3,"Family Guy");
+INSERT INTO BestKnownFor (person_id, project) VALUES (4,"That 70's Show");
+INSERT INTO BestKnownFor (person_id, project) VALUES (4,"Punk'd");
+INSERT INTO BestKnownFor (person_id, project) VALUES (6,"All Of Me");
+INSERT INTO BestKnownFor (person_id, project) VALUES (7,"Hollaback Girl");
+INSERT INTO BestKnownFor (person_id, project) VALUES (8,"Some Beach");
+INSERT INTO BestKnownFor (person_id, project) VALUES (9,"Gossip Girl");
+INSERT INTO BestKnownFor (person_id, project) VALUES (10,"Deadpool"); 
+INSERT INTO BestKnownFor (person_id, project) VALUES (11,"Game Of Thrones");
+INSERT INTO BestKnownFor (person_id, project) VALUES (12,"Cake By The Ocean");
+INSERT INTO BestKnownFor (person_id, project) VALUES (14, "Descpacito");
+INSERT INTO BestKnownFor (person_id, project) VALUES (15, "I Kissed A Girl");
+INSERT INTO BestKnownFor (person_id, project) VALUES (16, "Lord Of The Rings");
+
+SELECT a.name AS wife, b.name AS husband FROM married_couples 
+    JOIN famous_people a
+    ON married_couples.married1_id = a.id
+    JOIN famous_people b
+    ON married_couples.married2_id = b.id;
+
+SELECT famous_people.name, BestKnownFor.project
+  FROM famous_people
+  LEFT OUTER JOIN BestKnownFor
+  ON famous_people.id=person_id; 
+
+SELECT famous_people.name, friends.email as friends_email
+    FROM famous_people
+    JOIN famous_people friends
+    ON famous_people.friend_id = friends.id;
+    
+
+    
+
