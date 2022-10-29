@@ -16,7 +16,11 @@ Fish Tank(20)(6)(3)
 Fish Food(2)(6)(2)
 **/
 
-CREATE TABLE pet_store (id INTEGER Primary Key, name TEXT, price INTEGER, aisle INTEGER, options INTEGER);
+CREATE TABLE pet_store 
+(id INTEGER Primary Key, 
+name TEXT, price INTEGER, 
+aisle INTEGER, 
+options INTEGER);
 
 INSERT INTO pet_store VALUES (1, "Dog Toy",5,3,12); 
 INSERT INTO pet_store VALUES (2, "Cat Toy",6,4,6);
