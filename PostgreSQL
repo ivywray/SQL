@@ -41,3 +41,4 @@ FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
 WHERE type = 'Movie' 
 ORDER BY release_year ASC
 LIMIT 1;
+ 
