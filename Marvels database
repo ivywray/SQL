@@ -40,12 +40,20 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
-SELECT * FROM marvels;
+#1. What average, min, and max values in the data? 
 
 SELECT MAX (strength) FROM marvels; 
 SELECT MIN (strength) FROM marvels; 
 SELECT AVG (intelligence) FROM marvels;
 
+
+#2. What about those numbers per category in the data (using HAVING)?
+
+SELECT name, SUM (fighting_skills) AS best_fighters FROM marvels 
+GROUP BY name
+HAVING fighting_skills > 4 AND strength > 3;
+
+#3. What ways are there to group the data values that don’t exist yet (using CASE)?
 
 /*CASE*/
 SELECT name, speed,
@@ -70,9 +78,8 @@ END AS pace
 FROM marvels
 GROUP BY speed;
 
+#4. What interesting ways are there to filter the data (using AND/OR)?
+
 SELECT name,intelligence,hometown
 FROM marvels WHERE intelligence > 3 AND (hometown = 'USA' OR hometown = 'Canada' OR hometown = 'Germany');
 
-SELECT name, SUM (fighting_skills) AS best_fighters FROM marvels 
-GROUP BY name
-HAVING fighting_skills > 4 AND strength > 3;
