@@ -73,17 +73,20 @@ INSERT INTO BestKnownFor (person_id, project) VALUES (14, "Descpacito");
 INSERT INTO BestKnownFor (person_id, project) VALUES (15, "I Kissed A Girl");
 INSERT INTO BestKnownFor (person_id, project) VALUES (16, "Lord Of The Rings");
 
+#1. Who are the famous people married to?
 SELECT a.name AS wife, b.name AS husband FROM married_couples 
     JOIN famous_people a
     ON married_couples.married1_id = a.id
     JOIN famous_people b
     ON married_couples.married2_id = b.id;
 
+#2. What project (movie,song, ect.) are they best known for? Include famous people who do not have a project listed in the BestKnownFor table.
 SELECT famous_people.name, BestKnownFor.project
   FROM famous_people
   LEFT OUTER JOIN BestKnownFor
   ON famous_people.id=person_id; 
-
+  
+#3. The famous people have all been assigned a famous friend. Query a statement to list the names of the famous people along with their friends email address.
 SELECT famous_people.name, friends.email as friends_email
     FROM famous_people
     JOIN famous_people friends
