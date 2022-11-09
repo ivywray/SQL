@@ -20,6 +20,9 @@ ON c.order_id = FEB.orderid;
 
 #4. Which product was the cheapest one sold in January, and what was the price?
 
+SELECT DISTINCT Product, price
+FROM BIT_DB.JanSales
+WHERE price IN (SELECT MIN(price) FROM BIT_DB.JanSales);
 
 
 #5. What is the total revenue for each product sold in January?
@@ -27,7 +30,6 @@ ON c.order_id = FEB.orderid;
 SELECT product, SUM (quantity)*price AS total_revenue
 FROM BIT_DB.JanSales
 GROUP BY product;
-
 
 #6. Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
 SELECT  SUM (Quantity), product, SUM (quantity)*price AS total_revenue
