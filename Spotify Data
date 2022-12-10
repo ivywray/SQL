@@ -1,5 +1,5 @@
 # Here I have downloaded Spotify data from Kaggle and then created a table to insert the Spotify data into.
-# I used SQL to find the following information about the data listed below.
+# Next I analyzed the data using SQL.
 
 #Creating the table: 
 
@@ -24,3 +24,21 @@ duration_ms INTEGER NOT NULL,
 time_signature INTEGER NOT NULL 
 )
 
+# I discovered what the 5 least dancable songs are by danceability.
+SELECT artist_name, track_name, danceability
+FROM BIT_DB.Spotifydata
+ORDER BY danceability asc
+LIMIT 5;
+
+# Next I found the average liveness, acousticness, and tempo of each artist and track.
+SELECT artist_name, track_name,
+avg(liveness),
+avg(acousticness),
+avg(tempo)
+FROM BIT_DB.spotifydata
+GROUP BY artist_name, track_name;
+
+# Then I determined which songs are by Doja Cat, Ariana Grande, or Olivia Rodrigo with a tempo of 100 or greater. 
+SELECT artist_name, track_name
+FROM BIT_DB.Spotifydata
+WHERE tempo >= 100 AND artist_name IN ("Doja Cat","Ariana Grande","Olivia Rodrigo"); 
