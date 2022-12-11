@@ -27,7 +27,7 @@ time_signature INTEGER NOT NULL
 # I discovered what the 5 least dancable songs are by danceability.
 SELECT artist_name, track_name, danceability
 FROM BIT_DB.Spotifydata
-ORDER BY danceability asc
+ORDER BY danceability ASC
 LIMIT 5;
 
 # Next I found the average liveness, acousticness, and tempo of each artist and track.
@@ -41,4 +41,5 @@ GROUP BY artist_name, track_name;
 # Then I determined which songs are by Doja Cat, Ariana Grande, or Olivia Rodrigo with a tempo of 100 or greater. 
 SELECT artist_name, track_name
 FROM BIT_DB.Spotifydata
-WHERE tempo >= 100 AND artist_name IN ("Doja Cat","Ariana Grande","Olivia Rodrigo"); 
+WHERE tempo >= 100 AND artist_name IN ("Doja Cat","Ariana Grande","Olivia Rodrigo")
+ORDER BY artist_name; 
