@@ -1,0 +1,55 @@
+#From Khan Acadamy Project: App impersonator 
+
+#Think about your favorite apps, and pick one that stores your data- like a game that stores scores, an app that lets you post updates, etc. 
+Now in this project, you're going to imagine that the app stores your data in a SQL database (which is pretty likely!), and write SQL statements 
+that might look like their own SQL.
+
+#CREATE a table to store the data.
+INSERT a few example rows in the table.
+Use an UPDATE to emulate what happens when you edit data in the app.
+Use a DELETE to emulate what happens when you delete data in the app.
+
+
+CREATE TABLE pinterest (
+id INTEGER PRIMARY KEY,
+username TEXT,
+email TEXT,
+sign_up_date TEXT,
+number_of_boards NUMERIC
+);
+
+
+INSERT INTO pinterest VALUES (1,"harry_potter", "harry_potter@hogwarts.com", "11/16/2000" , 8
+);
+
+INSERT INTO pinterest VALUES (2, "ron_weasely", "ron_weasley@hogwarts.com","11/14/2002", 7
+);
+
+INSERT INTO pinterest VALUES (3, "hermione_granger","hermione_granger@hogwarts.com","06/04/2004", 15
+);
+
+INSERT INTO pinterest VALUES (4, "dobby_the_elf", "dobby@houselfnetwork.com","11/18/2005", 11
+); 
+
+INSERT INTO pinterest VALUES (5, "professor_dumbledore","professor_dumbledore@hogwarts.com","07/11/2007", 17
+);
+
+INSERT INTO pinterest VALUES (6, "professor_mcgonagall","professor_mcgonagall@hogwarts.com", "07/15/2009", 12
+);
+
+INSERT INTO pinterest VALUES (7, "ginny_weasley","ginny_weasley@hogwarts.com","11/19/2010", 13
+);
+
+INSERT INTO pinterest VALUES (8, "arthur_weasley", "arthur_weasley@ministryofmagic.com","07/15/2011", 10
+);
+
+SELECT * FROM pinterest;
+
+UPDATE pinterest SET sign_up_date = "11/16/2001"
+WHERE id = 1;
+
+SELECT * FROM pinterest; 
+
+DELETE FROM pinterest WHERE id = 7; 
+
+SELECT * FROM pinterest; 
